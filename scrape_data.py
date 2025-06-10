@@ -45,12 +45,25 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(description="Download sample videos for training")
-    parser.add_argument("url", help="URL of the page to scrape")
+    parser.add_argument("url", nargs="?", help="URL of the page to scrape")
+    parser.add_argument("--urls-file", help="File containing one URL per line")
     parser.add_argument("--out", default="data/raw", help="Output directory")
-    parser.add_argument("--limit", type=int, default=10, help="Number of videos to download")
+    parser.add_argument("--limit", type=int, default=10, help="Number of videos to download from each page")
     args = parser.parse_args()
 
-    download_videos(args.url, args.out, args.limit)
+    if not args.url and not args.urls_file:
+        parser.error("provide a URL or --urls-file")
+
+    urls = []
+    if args.urls_file:
+        with open(args.urls_file) as f:
+            urls.extend([line.strip() for line in f if line.strip()])
+    if args.url:
+        urls.append(args.url)
+
+    for idx, u in enumerate(urls, start=1):
+        out_dir = os.path.join(args.out, f"url_{idx}") if len(urls) > 1 else args.out
+        download_videos(u, out_dir, args.limit)
 
 
 if __name__ == "__main__":
