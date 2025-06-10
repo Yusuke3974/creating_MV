@@ -13,6 +13,8 @@ dependencies = [
     "torchvision",
     "moviepy",
     "scikit-learn",
+    "diffusers",
+    "peft",
 ]
 
 [project.scripts]
@@ -21,4 +23,5 @@ preprocess-data = "creating_mv.preprocess_data:main"
 train-model = "creating_mv.train_model:main"
 generate-output = "creating_mv.generate_output:main"
 multi-scrape = "creating_mv.multi_scrape:main"
+lora-train = "creating_mv.lora_train:main"
 

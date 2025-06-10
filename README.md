@@ -60,6 +60,20 @@ Regular `pip` also works if you prefer.
    scripts/generate_output models/autoencoder.pth path/to/song.mp3 --frames 120 --fps 24 --out output.mp4
    ```
 
+### LoRA fine-tuning
+
+Diffusion models can be fine-tuned using LoRA weights with the `scripts/lora_train` entry point:
+
+```bash
+scripts/lora_train data/frames --model runwayml/stable-diffusion-v1-5 --epochs 1 --out models/lora_sd
+```
+
+The resulting directory can be passed to `scripts/generate_output` with the `--lora` flag to create longer sequences (2–4 minute videos):
+
+```bash
+scripts/generate_output models/lora_sd path/to/song.mp3 --lora --prompt "My scene" --frames 4800 --fps 24 --out long_video.mp4
+```
+
 The above commands assume you are running them from the repository root. Feel free to
 adjust the paths as needed.
 
