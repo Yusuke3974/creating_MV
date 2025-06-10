@@ -3,6 +3,9 @@ name = "creating-mv"
 version = "0.1.0"
 description = "Tools for scraping videos, preprocessing frames, training models and generating music videos."
 requires-python = ">=3.8"
+packages = [
+    {include = "creating_mv", from = "src"},
+]
 dependencies = [
     "requests",
     "beautifulsoup4",
@@ -11,4 +14,10 @@ dependencies = [
     "moviepy",
     "scikit-learn",
 ]
+
+[project.scripts]
+scrape-data = "creating_mv.scrape_data:main"
+preprocess-data = "creating_mv.preprocess_data:main"
+train-model = "creating_mv.train_model:main"
+generate-output = "creating_mv.generate_output:main"
 
