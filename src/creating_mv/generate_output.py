@@ -6,7 +6,7 @@ from torchvision import transforms
 from moviepy.editor import ImageSequenceClip, AudioFileClip
 from PIL import Image
 
-from train_model import Autoencoder
+from .train_model import Autoencoder
 
 
 def load_model(model_path: str, device: str = "cpu") -> Autoencoder:
