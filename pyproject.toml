@@ -1,0 +1,14 @@
+[project]
+name = "creating-mv"
+version = "0.1.0"
+description = "Tools for scraping videos, preprocessing frames, training models and generating music videos."
+requires-python = ">=3.8"
+dependencies = [
+    "requests",
+    "beautifulsoup4",
+    "torch",
+    "torchvision",
+    "moviepy",
+    "scikit-learn",
+]
+
