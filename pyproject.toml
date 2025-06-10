@@ -20,4 +20,5 @@ scrape-data = "creating_mv.scrape_data:main"
 preprocess-data = "creating_mv.preprocess_data:main"
 train-model = "creating_mv.train_model:main"
 generate-output = "creating_mv.generate_output:main"
+multi-scrape = "creating_mv.multi_scrape:main"
 

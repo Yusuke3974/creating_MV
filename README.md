@@ -31,8 +31,15 @@ Regular `pip` also works if you prefer.
 
 1. **Download videos**
 
-   ```bash
+```bash
    scripts/scrape_data https://example.com/videos --out data/raw --limit 10
+```
+
+   To fetch several pages in parallel, provide a file of URLs to
+   `scripts/multi_scrape`:
+
+   ```bash
+   scripts/multi_scrape URL.txt --out data/raw --limit 10 --workers 4
    ```
 
 2. **Extract frames**
