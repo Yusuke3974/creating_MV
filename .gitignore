@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+.Python
+env/
+build/
+dist/
+
+# Video and frame outputs
+data/
+_temp_frames/
+output.mp4
+model.pth
